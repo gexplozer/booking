@@ -7,7 +7,6 @@ let today = now.getDate() + 5,
     monthStartDay = new Date(now.getFullYear(), now.getMonth(), 1).getDay(),
     pickedDay, pickedTime,
     storage = [];
-console.log(month);
 
 
 //выводим календарь месяца

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Booking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/pure.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
 </head>
 <body>
@@ -34,17 +35,18 @@
             </div>
         </div>
 
-        <div>
-            <div class="selected">
-                <span>Дата:</span>
-                <span id="selectedDate">09/</span>
-                <span id="selectedMonth">02/</span>
-                <span id="selectedYear">2018</span>
-                <br>
+        <div class="selected">
+            <div>
+                <h2>Приём:</h2>
+                <div style="display: block;">
+                    <span id="selectedDate">09 /</span>
+                    <span id="selectedMonth">02 /</span>
+                    <span id="selectedYear">2018</span>
+                </div>
                 <span id="selectedTime">10:30</span>
             </div>
 
-            <button id="addBooking">ЗАПИСАТЬСЯ</button>
+            <button id="addBooking" class="pure-button">ЗАПИСАТЬСЯ</button>
         </div>
 
     </div>
