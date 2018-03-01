@@ -1,43 +1,85 @@
+:root {
+  --fontWhite: rgba(255,255,255,.87);
+  --fontBlack: rgba(0,0,0,.87);
+  --deepMain: #003A65;
+  --midMain: #0066B2;
+  --lightMain: #199DFE;
+  --deepSecondary: #653D00;
+  --lightSecondary: #B26B00;
+  --deepThird: #2C8244;
+  --midThird: #46CF6C;
+  --btnRed: #CB0F0A;
+  --btnYellow: #D3D420;
+  --btnBlue: #0A3E65;
+  --grey: #f7f7f7;
+  --wrapperWidth: 1140px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+body {
+    font: 1em sans-serif;
+}
+
 h3 {
     margin: 0 0 1rem 0;
 }
 
-.datePicker, .time {
+.booking {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: space-around;
+    margin: 1em auto;
+    max-width: 900px;
+}
+
+
+.datePicker {
     display: inline-flex;
     flex-flow: column;
-    width: 200px;
-    padding: 2em 1em 1em;
-    border: 1px solid #aaa;
-    border-radius: .5em;
+    width: 250px;
+    padding: 0 0 1em 0;
+    box-shadow: var(--shadow);
+
+}
+
+.datePicker .header {
+    padding: 1rem;
+    color: var(--fontWhite);
+    background-color: indigo;
+}
+
+.datePicker h2, .datePicker h3 {
+    margin: 0;
+    padding: 0;
 }
 
 .datePicker span {
     width: calc(100% / 7);
     text-align: center;
-    padding: .1em 0;
-    border-radius: 3px;
+    padding: .2em 0;
     transition: all .1s ease-in;
 }
 
 .labels {
     display: flex;
     flex-flow: row wrap;
-    color: rgba(255, 255, 255, .87);
-    padding: .25em 0;
+    padding: .25em 1rem;
     margin: 0 0 .25em 0;
-    background-color: rebeccapurple;
 }
 
 .calendar {
     display: flex;
     flex-flow: row wrap;
+    padding: 0 1rem;
 }
 
-.calendar .today {
-    outline: 1px solid #aaa;
+.calendar .picked {
+    color: rgba(255, 255, 255, .87);
+    background-color: indigo;
 }
 
-.calendar span:not(.disabled):hover {
+.calendar span:not(.disabled):not(.picked):hover {
     cursor: pointer;
     background-color: powderblue;
 }
@@ -46,20 +88,43 @@ h3 {
     opacity: .5;
 }
 
+.time {
+    display: inline-flex;
+    flex-flow: column;
+    width: 250px;
+    padding: 0 0 1em 0;
+    box-shadow: var(--shadow);
+}
+
+.time h2 {
+    padding: 1rem;
+    margin: 0 0 2rem 0;
+    color: var(--fontWhite);
+    background-color: firebrick;
+}
+
 .times {
-    
+    padding: 0 1rem;
 }
 
 .times span {
     display: inline-block;
-    width: calc(100% / 4);
+    width: calc(100% / 3);
     text-align: center;
     padding: .1em 0;
-    border-radius: 3px;
     transition: all .1s ease-in;
 }
 
-.times span:not(.disabled):hover {
+.times span:not(.disabled):not(.picked):hover {
     cursor: pointer;
-    background-color: powderblue;
+    background-color: seashell;
+}
+
+.selected {
+    display: inline-flex;
+}
+
+.time .picked {
+    color: rgba(255, 255, 255, .87);
+    background-color: firebrick;
 }

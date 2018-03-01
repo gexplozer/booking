@@ -8,27 +8,47 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
 </head>
 <body>
+    <div class="booking">
+        <div class="datePicker">
+            <div class="header">
+                <h2>2018</h2>
+                <h3>Февраль</h3>
+            </div>
+            
+            <div class="labels">
+                <span>Пн</span>
+                <span>Вт</span>
+                <span>Ср</span>
+                <span>Чт</span>
+                <span>Пт</span>
+                <span>Сб</span>
+                <span>Вс</span>
+            </div>
+            <div class="calendar">
+            </div>
+        </div>
 
-    <div class="datePicker">
-        <h3>Дата</h3>
-        <div class="labels">
-            <span>Пн</span>
-            <span>Вт</span>
-            <span>Ср</span>
-            <span>Чт</span>
-            <span>Пт</span>
-            <span>Сб</span>
-            <span>Вс</span>
+        <div class="time">
+            <h2>Время</h2>
+            <div class="times">
+            </div>
         </div>
-        <div class="calendar">
-        </div>
-    </div>
 
-    <div class="time">
-        <h3>Время</h3>
-        <div class="times">
+        <div>
+            <div class="selected">
+                <span>Дата:</span>
+                <span id="selectedDate">09/</span>
+                <span id="selectedMonth">02/</span>
+                <span id="selectedYear">2018</span>
+                <br>
+                <span id="selectedTime">10:30</span>
+            </div>
+
+            <button id="addBooking">ЗАПИСАТЬСЯ</button>
         </div>
+
     </div>
+    
 
     
 <script src="/js/main.js"></script>
