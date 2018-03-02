@@ -3,7 +3,7 @@ let getStorage = JSON.parse(readStorage());
 
 //считывем дату, время и всё такое
 const now = new Date();
-let today = now.getDate(),
+let today = now.getDate()+1,
     year = now.getFullYear(),
     month = now.getMonth(),
     monthLength = 33 - new Date(now.getFullYear(), now.getMonth(), 33).getDate(),
@@ -51,7 +51,7 @@ function readStorage() {
         }
     };
     xhr.send();
-    if (file) {return file} else {return ""}
+    if (file) {return file;} else {return "";}
 }
 
 //отправляем запись в расписание
@@ -75,14 +75,29 @@ function writeStorage() {
     };
 }
 
+function insertCta(title, button) {
+    qS(".ctaTingle form .ctaRequest").value = `${title} | ${button}`;
+    qS(".ctaTingle form h3").innerHTML = title;
+    let date = qSA(".selected div div")[0].cloneNode(true);
+    let time = qSA(".selected div div")[1].cloneNode(true);
+    qS(".ctaTingle form div").appendChild(date);
+    qS(".ctaTingle form div").appendChild(time);
+    qS(".ctaTingle form button").innerHTML = button;
+}
+
 
 //выводим календарь месяца
 for (let index = 1; index < monthLength+1; index++) {
-    let newItem = document.createElement("span");
-    let d = new Date(year, month, index);
-    if (d.getDay() == 0 || d.getDay() == 6) newItem.classList.add("weekend");
+    let newItem = document.createElement("span"),
+        d = new Date(year, month, index),
+        isWeekend = d.getDay() == 0 || d.getDay() == 6;
+    if (isWeekend) newItem.classList.add("weekend");
     if (index < today) newItem.classList.add("disabled");
-    if (index == today) {
+    if (index == today && !isWeekend) {
+        newItem.classList.add("picked");
+        qS("#selectedDate").innerHTML = `${index}/`;
+    }
+    if (index > today && !isWeekend && !qS(".calendar .picked")) {
         newItem.classList.add("picked");
         qS("#selectedDate").innerHTML = `${index}/`;
     }
@@ -108,8 +123,22 @@ let dates =  qSA(".calendar span:not(.disabled):not(.weekend)");
     });
 });
 
-//по клику на кнопку записываем в базу
-qS("#addBooking").addEventListener("click", () => {
-    writeStorage();
+let modalCta = new tingle.modal({
+    cssClass: ["ctaTingle"],
+    onOpen: function () {
+        common.formsListener(".tingle-modal .leadData"); // прикручиваем прослушку submit'а текущей формы в модале
+    }
 });
 
+//по клику на кнопку записываем в базу
+qS("#addBooking").addEventListener("click", () => {
+    modalCta.setContent(qS(".inlineCtaBlock").innerHTML);
+    insertCta("Почти готово! Введите контакты:", "Записаться");
+    modalCta.open();
+});
+
+let common = sendData(modalCta); // отправляем по аяксу введённые данные
+common.callback = function () {
+    writeStorage();
+    qS(".openButton").click();
+}
