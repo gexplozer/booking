@@ -79,13 +79,13 @@ function writeStorage() {
 //выводим календарь месяца
 for (let index = 1; index < monthLength+1; index++) {
     let newItem = document.createElement("span");
+    let d = new Date(year, month, index);
+    if (d.getDay() == 0 || d.getDay() == 6) newItem.classList.add("weekend");
     if (index < today) newItem.classList.add("disabled");
     if (index == today) {
         newItem.classList.add("picked");
         qS("#selectedDate").innerHTML = `${index}/`;
     }
-    let d = new Date(year, month, index);
-    if (d.getDay() == 0 || d.getDay() == 6) newItem.classList.add("weekend");
     newItem.innerHTML = index;
     qS(".calendar").appendChild(newItem);
 }

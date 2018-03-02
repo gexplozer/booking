@@ -52,7 +52,7 @@ h3 {
 .datePicker .header {
     padding: 1rem;
     color: var(--fontWhite);
-    background-color: indigo;
+    background-color: var(--deepMain);
 }
 
 .datePicker h2, .datePicker h3 {
@@ -82,7 +82,7 @@ h3 {
 
 .calendar .picked {
     color: rgba(255, 255, 255, .87);
-    background-color: indigo;
+    background-color: var(--deepMain);
 }
 
 .calendar span:not(.disabled):not(.picked):not(.weekend):hover {
@@ -96,7 +96,7 @@ h3 {
 }
 
 .calendar .weekend {
-    color: firebrick;
+    color: var(--btnRed);
     cursor: default;
 }
 
@@ -113,7 +113,7 @@ h3 {
     margin: 0 0 1.75rem 0;
     padding-bottom: calc(1rem + 21px);
     color: var(--fontWhite);
-    background-color: firebrick;
+    background-color: var(--deepSecondary);
 }
 
 .times {
@@ -130,7 +130,7 @@ h3 {
 
 .times span:not(.disabled):not(.picked):hover {
     cursor: pointer;
-    background-color: seashell;
+    background-color: var(--lightSecondary);
 }
 
 .selected {
@@ -154,7 +154,7 @@ h3 {
 
 .time .picked {
     color: rgba(255, 255, 255, .87);
-    background-color: firebrick;
+    background-color: var(--deepSecondary);
 }
 
 #selectedTime {
