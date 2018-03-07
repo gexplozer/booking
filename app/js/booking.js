@@ -71,10 +71,13 @@ function writeStorage() {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState != 4) return;
-        console.log(xhr.responseText);
+        if (xhr.responseText == "ЗАНЯТО") {
+            console.log("БЛЯ((");
+        } else { console.log(xhr.responseText);}
     };
 }
 
+// Заменяем заголовки и текст в форме заявки перед открытием
 function insertCta(title, button) {
     qS(".ctaTingle form .ctaRequest").value = `${title} | ${button}`;
     qS(".ctaTingle form h3").innerHTML = title;
@@ -142,3 +145,8 @@ common.callback = function () {
     writeStorage();
     qS(".openButton").click();
 }
+
+/*TODO:
+- Сделать вывод двух месяцев
+- Корректное отображение выбранного месяца
+*/

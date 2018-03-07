@@ -6,14 +6,17 @@
     <title>Booking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/pure.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/libs.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/gaFramework.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/booking.css" />
 </head>
 <body>
-    <div class="booking">
+    <button class="pure-button pure-button-primary openButton">Записаться на приём</button>
+    <div class="booking openBlock">
         <div class="datePicker">
             <div class="header">
                 <h2>2018</h2>
-                <h3>Февраль</h3>
+                <h3>Март</h3>
             </div>
             
             <div class="labels">
@@ -41,7 +44,7 @@
                 <div>
                     <i class="far fa-calendar-alt"></i>
                     <span id="selectedDate">09 /</span>
-                    <span id="selectedMonth">02 /</span>
+                    <span id="selectedMonth">03 /</span>
                     <span id="selectedYear">2018</span>
                 </div>
                 <div><i class="far fa-clock"></i><span id="selectedTime">10:30</span></div>
@@ -50,11 +53,25 @@
         </div>
 
     </div>
+
+    <div class="inlineCtaBlock">
+        <form method="post" class="ctaBlock pure-form forma leadData">
+            <h3>Есть вопросы по работам? Спросите у мастера:</h3>
+            <input class="ctaRequest" type="hidden" name="title" value="Есть вопросы по работам? Спросите у мастера: | БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ"
+            />
+            <input class="pure-input-rounded" type="text" name="phone" placeholder="Телефон (+7 ...)" required autofocus/>
+            <input class="pure-input-rounded" type="text" name="name" placeholder="Имя" />
+            <div></div>
+            <button class="btn">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</button>
+        </form>
+    </div>
     
 
     
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-<script src="/js/querySelectors.js"></script>
+<script src="/js/libs.js"></script>
+<script src="/js/gaFramework.js"></script>
+<script src="/js/common.js"></script>
 <script src="/js/booking.js"></script>
 </body>
 </html>
